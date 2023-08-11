@@ -1,0 +1,18 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+id 'com.android.application' version '8.1.0' apply false
+}
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'AllButAll'
+            artifactId = 'Version:1.0'
+            version = "1.0"
+            pom {
+                description = 'Android Library contains all needed methods. Developed by AllButAll'
+            }
+        }
+    }
+}
