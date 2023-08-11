@@ -1,7 +1,8 @@
-plugins {
+plugins{
     id 'com.android.library'
     id 'maven-publish'
 }
+
 
 android {
     namespace 'com.allbutall.androidlibrary'
@@ -27,6 +28,31 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+publishing {
+    publications {
+        bar(MavenPublication){
+            groupId "allbutall"
+            artifactId "androidlibrary"
+            version "0.0.1-alpha"
+            artifact("$buildDir/outputs/aar/androidlibrary-release.aar")
+        }
+    }
+
+
+    repositories {
+        maven {
+
+        name "GithubPackages"
+        url uri("https://github.com/allbutall/androidlibrary")
+        credentials{
+            username = "allbutall"
+            password = "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"
+        }
+
+        }
+    }
+
+}
 
 dependencies {
 
@@ -35,16 +61,5 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-}
-afterEvaluate {
-    publishing {
-        publications {
-            productionRelease(MavenPublication) {
-                from components.findByName("release")
-                        groupId = 'com.github.allbutall'
-                artifactId = 'androidlibrary'
-                version = "1.0"
-            }
-        }
-    }
+
 }
