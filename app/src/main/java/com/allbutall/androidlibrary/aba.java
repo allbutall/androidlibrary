@@ -6,10 +6,10 @@ import android.widget.Toast;
 public class aba {
 
     public static Void SimpleToaster(Context ctx, String msg, String duration) {
-        if (duration == "SHORT")
+        if (duration.equals("SHORT"))
         {
             Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show();
-        } else if (duration == "LONG") {
+        } else if (duration.equals("LONG")) {
             Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
         }
         return null;

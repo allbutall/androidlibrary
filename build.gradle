@@ -2,17 +2,3 @@
 plugins {
 id 'com.android.application' version '8.1.0' apply false
 }
-apply plugin: 'maven-publish'
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'AllButAll'
-            artifactId = 'Version:1.0'
-            version = "1.0"
-            pom {
-                description = 'Android Library contains all needed methods. Developed by AllButAll'
-            }
-        }
-    }
-}
